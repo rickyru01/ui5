@@ -1,0 +1,12 @@
+{
+    "items": [{
+        "Type": "Main cache",
+        "Value": 64
+    }, {
+        "Type": "Temporary cache",
+        "Value": 64
+    }, {
+        "Type": "Remaining heap",
+        "Value": 1
+    }]
+}

@@ -15,6 +15,7 @@ sap.ui.define([
             this._bDescendingSort = false;
             this.oProductsTable = this.oView.byId("productsTable");
             this.loadData();
+            this.oRouter = this.getOwnerComponent().getRouter();
         },
 
         loadData: function () {
@@ -30,7 +31,7 @@ sap.ui.define([
 
             var sDataPath = jQuery.sap.getModulePath("ricky.test.ui5.demo1", "/data/products.json");
             var oProductsModel = new sap.ui.model.json.JSONModel(sDataPath);
-            var com =  sap.ui.core.Component.getOwnerComponentFor(this.getView());
+            var com = sap.ui.core.Component.getOwnerComponentFor(this.getView());
             com.setModel(oProductsModel, 'products');
             //this.oView.setModel(oProductsModel, 'products');
 
@@ -61,10 +62,16 @@ sap.ui.define([
             oBinding.sort(oSorter);
         },
 
-        onListItemPress: function () {
-			var oFCL = this.oView.getParent().getParent();//the view refer to master view.
+        onListItemPress: function (oEvent) {
+            // var oFCL = this.oView.getParent().getParent();//the view refer to master view.
+            // oFCL.setLayout(fioriLibrary.LayoutType.TwoColumnsMidExpanded);
+            var productPath = oEvent.getSource().getBindingContext("products").getPath(),
+                product = productPath.split("/").slice(-1).pop();
 
-			oFCL.setLayout(fioriLibrary.LayoutType.TwoColumnsMidExpanded);
-		}
+            this.oRouter.navTo("detail", {
+                layout: fioriLibrary.LayoutType.TwoColumnsMidExpanded,
+                product: product
+            });
+        }
     });
 });

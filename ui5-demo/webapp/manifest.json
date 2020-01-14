@@ -91,6 +91,22 @@
 					"target": "flexLayout"
 				},
 				{
+					"pattern": "goToMaster",
+					"name": "master",
+					"target": [
+						"master",
+						"detail"
+					]
+				},
+				{
+					"pattern": "detail/{product}/{layout}",
+					"name": "detail",
+					"target": [
+						"master",
+						"detail"
+					]
+				},
+				{
 					"pattern": "statusIndicator",
 					"name": "statusIndicator",
 					"target": "statusIndicator"
@@ -112,6 +128,14 @@
 					"viewPath": "ricky.test.ui5.demo1.view.flex_layout",
 					"viewName": "2ColLayout",
 					"viewLevel": 2
+				},
+				"master": {
+					"viewName": "Master",
+					"controlAggregation": "beginColumnPages"
+				},
+				"detail": {
+					"viewName": "Detail",
+					"controlAggregation": "midColumnPages"
 				},
 				"statusIndicator": {
 					"viewId": "statusIndicator",

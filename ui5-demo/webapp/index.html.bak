@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ricky's testing web site</title>
+</head>
+
+<body>
+    <h1 style="margin-bottom: 50px;" >Pages for specific testing</h1>
+    <ol>
+        <li><a href="./micro_chart.html" target="_blank">From a Button to learn UI5 booting and inheritence</a></li>
+    </ol>
+</body>
+
+</html>

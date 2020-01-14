@@ -1,27 +1,28 @@
-<mvc:View
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:m="sap.m"
-	xmlns="sap.suite.ui.microchart"
-	xmlns:layout="sap.ui.layout"
-	controllerName="ricky.test.ui5.demo1.controller.InterDonutChart">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:m="sap.m" 
+	xmlns="sap.suite.ui.microchart" 
+	xmlns:layout="sap.ui.layout" controllerName="ricky.test.ui5.demo1.controller.InterDonutChart">
 
 	<m:Text text="Three segments" class="sapUiSmallMargin">
 		<m:layoutData>
 			<layout:GridData span="XL12 L12 M12 S12"/>
 		</m:layoutData>
 	</m:Text>
+	<!-- InteractiveDonutChartSegment, the width for displayedValue is about 55 px. if the text is long, probably trucated. usually a percentage is better choice. 
+	The label is the remaining space reduced the displayedValue. Please use F12 to check the rendered div element.-->
+
 	<m:FlexBox width="20rem" height="10rem" alignItems="left" justifyContent="SpaceBetween">
 		<m:items>
 			<InteractiveDonutChart id="theChart" selectionChanged="onSelectionChanged">
 				<!-- <segments>
-					<InteractiveDonutChartSegment id="mainSeg"  label="Impleme Phase" value="4.0" displayedValue=" abc 1.0%"/>
-					<InteractiveDonutChartSegment id="tempSeg"  label="Design Phase" value="2.5" displayedValue="1.5%"/>
+					<InteractiveDonutChartSegment id="mainSeg" label="Impleme Phase" value="4.0" displayedValue=" abc 1.0%"/>
+					<InteractiveDonutChartSegment id="tempSeg" label="Design Phase" value="2.5" displayedValue="1.5%"/>
 					<InteractiveDonutChartSegment id="remainingSeg" label="Test Phase" value="3.5" displayedValue="1.5%"/>
 				</segments> -->
 				<segments>
-					<InteractiveDonutChartSegment id="mainSeg"   value="4.0" displayedValue=" fgdfgfdgabc 1.0%"/>
-					<InteractiveDonutChartSegment id="tempSeg"   value="2.5" displayedValue="fdgfdgfdg1.5%"/>
-					<InteractiveDonutChartSegment id="remainingSeg"  value="3.5" displayedValue="gfdgfdgdfg1.5%"/>
+					<InteractiveDonutChartSegment id="mainSeg" value="4.0" displayedValue=" fgdfgfdgabc 1.0%"/>
+					<InteractiveDonutChartSegment id="tempSeg" value="2.5" displayedValue="fdgfdgfdg1.5%"/>
+					<InteractiveDonutChartSegment id="remainingSeg" value="3.5" displayedValue="gfdgfdgdfg1.5%"/>
 				</segments>
 			</InteractiveDonutChart>
 		</m:items>
@@ -45,4 +46,31 @@
 		</m:items>
 	</m:FlexBox>
 
+
+	<m:FlexBox width="100%"  alignItems="left" justifyContent="SpaceBetween">
+		<layout:HorizontalLayout>
+			<HarveyBallMicroChart size="L" total="360" totalScale="Mrd" press="press">
+				<items>
+					<HarveyBallMicroChartItem fraction="8" color="green" fractionScale="Mrd"/>
+					<HarveyBallMicroChartItem fraction="8" color="blue" fractionScale="Mrd"/>
+				</items>
+			</HarveyBallMicroChart>
+			<HarveyBallMicroChart size="M" total="100" totalScale="Mrd" press="press">
+				<items>
+					<HarveyBallMicroChartItem fraction="63.5" color="Good" fractionScale="Mrd"/>
+					<HarveyBallMicroChartItem fraction="20.5" color="Good" fractionScale="Mrd"/>
+				</items>
+			</HarveyBallMicroChart>
+			<HarveyBallMicroChart size="S" total="100" totalScale="Mrd" press="press">
+				<items>
+					<HarveyBallMicroChartItem fraction="63.5" color="Good" fractionScale="Mrd"/>
+				</items>
+			</HarveyBallMicroChart>
+			<HarveyBallMicroChart size="XS" total="100" totalScale="Mrd" press="press">
+				<items>
+					<HarveyBallMicroChartItem fraction="63.5" color="Good" fractionScale="Mrd"/>
+				</items>
+			</HarveyBallMicroChart>
+		</layout:HorizontalLayout>
+	</m:FlexBox>
 </mvc:View>

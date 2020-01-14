@@ -22,33 +22,12 @@
 
 		}
 	},
-
-	"sap.ui": {
-		"technology": "UI5",
-		"icons": {
-			"icon": "",
-			"favIcon": "",
-			"phone": "",
-			"phone@2": "",
-			"tablet": "",
-			"tablet@2": ""
-		},
-		"deviceTypes": {
-			"desktop": true,
-			"tablet": true,
-			"phone": true
-		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-
-		]
-	},
-
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "ricky.test.ui5.demo1.view.InterDonutChart",
-			"type": "XML"
+			"viewName": "ricky.test.ui5.demo1.view.App",
+			"type": "XML",
+			"id": "app",
+			"async": true
 		},
 		"dependencies": {
 			"minUI5Version": "1.30.0",
@@ -84,6 +63,86 @@
 			"css": [{
 				"uri": "css/style.css"
 			}]
+		},
+		"config": {
+			"fullWidth": true
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "ricky.test.ui5.demo1.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"async": true,
+				"bypassed": {
+					"target": "notFound"
+				}
+			},
+			"routes": [{
+					"pattern": "",
+					"name": "appHome",
+					"target": "home"
+				},
+				{
+					"pattern": "flexLayout",
+					"name": "flexLayout",
+					"target": "flexLayout"
+				},
+				{
+					"pattern": "statusIndicator",
+					"name": "statusIndicator",
+					"target": "statusIndicator"
+				}
+			],
+			"targets": {
+				"home": {
+					"viewId": "home",
+					"viewName": "Home",
+					"viewLevel": 1
+				},
+				"notFound": {
+					"viewId": "notFound",
+					"viewName": "NotFound",
+					"transition": "show"
+				},
+				"flexLayout": {
+					"viewId": "flexLayout",
+					"viewPath": "ricky.test.ui5.demo1.view.flex_layout",
+					"viewName": "2ColLayout",
+					"viewLevel": 2
+				},
+				"statusIndicator": {
+					"viewId": "statusIndicator",
+					"viewPath": "ricky.test.ui5.demo1.view",
+					"viewName": "StatusIndicator",
+					"viewLevel": 2
+				}
+				
+				
+			}
 		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+
+		]
 	}
 }

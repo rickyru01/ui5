@@ -129,14 +129,14 @@
 						<blocks>
 							<m:Table
 								id="suppliersTable"
-								items="{path : 'products>/ProductCollectionStats/Filters/1/values'}">
+								items="{path : 'products>DBFiles'}">
 								<m:columns>
 									<m:Column/>
 								</m:columns>
 								<m:items>
 									<m:ColumnListItem type="Navigation" press=".onSupplierPress">
 										<m:cells>
-											<m:ObjectIdentifier text="{products>text}"/>
+											<m:ObjectIdentifier text="{products>Name}"/>
 										</m:cells>
 									</m:ColumnListItem>
 								</m:items>

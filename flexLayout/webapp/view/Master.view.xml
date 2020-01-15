@@ -8,7 +8,7 @@
 		<f:title>
 			<f:DynamicPageTitle>
 				<f:heading>
-					<Title text="Products ({products>/ProductCollectionStats/Counts/Total})"/>
+					<Title text="Products ({products>/Total})"/>
 				</f:heading>
 			</f:DynamicPageTitle>
 		</f:title>

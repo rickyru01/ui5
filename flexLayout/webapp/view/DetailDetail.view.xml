@@ -8,7 +8,7 @@
 			<DynamicPageTitle>
 				<heading>
 					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Center">
-						<m:Title text="{products>text}" wrapping="true" class="sapUiTinyMarginEnd"/>
+						<m:Title text="{products>Path}" wrapping="true" class="sapUiTinyMarginEnd"/>
 					</m:FlexBox>
 				</heading>
 
@@ -36,6 +36,8 @@
 		</title>
 		<content>
 			<m:Link text="Navigate to next page…" press=".handleAboutPress"/>
+			<m:Link text="{products>Path}"/>
+			
 		</content>
 	</DynamicPage>
 </mvc:View>

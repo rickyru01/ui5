@@ -27,7 +27,7 @@ sap.ui.define([
 			this._product = oEvent.getParameter("arguments").product || this._product || "0";
 
 			this.getView().bindElement({
-				path: "/ProductCollectionStats/Filters/1/values/" + this._supplier,
+				path: "/ProductCollection/"+ this._product+"/DBFiles/" + this._supplier,
 				model: "products"
 			});
 		},

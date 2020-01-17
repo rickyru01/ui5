@@ -20,6 +20,10 @@ sap.ui.define([
 
         onStatusIndicator: function () {
             this.getRouter().navTo("statusIndicator");
+        },
+
+        onDynamicPage:function(){
+            this.getRouter().navTo("dynamicPage");
         }
     });
 

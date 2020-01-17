@@ -110,6 +110,10 @@
 					"pattern": "statusIndicator",
 					"name": "statusIndicator",
 					"target": "statusIndicator"
+				},{
+					"pattern": "dynamicPage",
+					"name": "dynamicPage",
+					"target": "dynamicPage"
 				}
 			],
 			"targets": {
@@ -141,6 +145,12 @@
 					"viewId": "statusIndicator",
 					"viewPath": "ricky.test.ui5.demo1.view",
 					"viewName": "StatusIndicator",
+					"viewLevel": 2
+				},
+				"dynamicPage": {
+					"viewId": "dynamicPage",
+					"viewPath": "ricky.test.ui5.demo1.view",
+					"viewName": "DynamicPageAnalyticalTable",
 					"viewLevel": 2
 				}
 				

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- TODO should remove sapUiSizeCompact class when globally applied -->
+<core:FragmentDefinition
+    class="sapUiSizeCompact"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    <SelectList
+        items="{
+              path: 'cards>/areas'
+            }"
+        selectedKey = 'MON'
+        selectionChange = "onVariantChanged">
+        <core:Item key="{cards>key}" text="{cards>value}" />
+    </SelectList>
+</core:FragmentDefinition>

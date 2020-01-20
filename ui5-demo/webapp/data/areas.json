@@ -1,0 +1,15 @@
+{
+	"areas": [{
+		"key": "ADM",
+		"value": "Administration"
+	}, {
+		"key": "ALL",
+		"value": "All"
+	}, {
+		"key": "MON",
+		"value": "Monitoring"
+	}, {
+		"key": "SEC",
+		"value": "Secuirty"
+	}]
+}

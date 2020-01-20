@@ -13,10 +13,15 @@ sap.ui.define([
 			var oJSONModel = this.initSampleDataModel();
 			this.getView().setModel(oJSONModel);
 		},
-		initSampleDataModel : function() {
+		initSampleDataModel: function () {
 			var oModel = new JSONModel();
 
-			var oDateFormat = DateFormat.getDateInstance({source: {pattern: "timestamp"}, pattern: "dd/MM/yyyy"});
+			var oDateFormat = DateFormat.getDateInstance({
+				source: {
+					pattern: "timestamp"
+				},
+				pattern: "dd/MM/yyyy"
+			});
 
 			jQuery.ajax(jQuery.sap.getModulePath("ricky.test.ui5.demo1.data", "/products.json"), {
 				dataType: "json",
@@ -29,11 +34,15 @@ sap.ui.define([
 						var oProduct = oData.ProductCollection[i];
 						if (oProduct.SupplierName && jQuery.inArray(oProduct.SupplierName, aTemp1) < 0) {
 							aTemp1.push(oProduct.SupplierName);
-							aSuppliersData.push({Name: oProduct.SupplierName});
+							aSuppliersData.push({
+								Name: oProduct.SupplierName
+							});
 						}
 						if (oProduct.Category && jQuery.inArray(oProduct.Category, aTemp2) < 0) {
 							aTemp2.push(oProduct.Category);
-							aCategoryData.push({Name: oProduct.Category});
+							aCategoryData.push({
+								Name: oProduct.Category
+							});
 						}
 						oProduct.DeliveryDate = (new Date()).getTime() - (i % 10 * 4 * 24 * 60 * 60 * 1000);
 						oProduct.DeliveryDateStr = oDateFormat.format(new Date(oProduct.DeliveryDate));
@@ -53,16 +62,47 @@ sap.ui.define([
 
 			return oModel;
 		},
+		onVariantSetsShowPress: function () {
+			this.initVariantList();
+			if (!this.oVariantPopOver) {
+				this.oVariantPopOver = new sap.m.ResponsivePopover({
+					showHeader: false,
+					contentWidth: '250px',
+					placement: sap.m.PlacementType.Bottom,
+					content: [this.oVariantList]
+				});
+			}
 
-		formatAvailableToObjectState : function (bAvailable) {
+			var trigger = this.getView().byId('showVariantSetsBtn');
+			this.oVariantPopOver.openBy(trigger);
+		},
+
+		initVariantList: function () {
+			if (!this.oVariantList) {
+				this.oVariantList = sap.ui.xmlfragment('ricky.test.ui5.demo1.view.VariantList', this);
+				var oView = this.getView();
+				oView.addDependent(this.oVariantList);
+			}
+			var sDataPath = jQuery.sap.getModulePath("ricky.test.ui5.demo1", "/data/areas.json");
+			console.log("sDataPath:" + sDataPath)
+			var oAreaMode = new sap.ui.model.json.JSONModel(sDataPath); //url+path which you will see in the network tab.
+
+			this.oVariantList.setModel(oAreaMode, 'cards');
+			// var oVariantModel = this.oView.getModel('variantModel');
+			// var oData = oVariantModel.getData();
+			// var sArea = oData.variantKey;
+			//set default selected key
+			this.oVariantList.setSelectedKey("ALL");
+		},
+		formatAvailableToObjectState: function (bAvailable) {
 			return bAvailable ? "Success" : "Error";
 		},
 
-		formatAvailableToIcon : function(bAvailable) {
+		formatAvailableToIcon: function (bAvailable) {
 			return bAvailable ? "sap-icon://accept" : "sap-icon://decline";
 		},
 
-		handleDetailsPress : function(oEvent) {
+		handleDetailsPress: function (oEvent) {
 			MessageToast.show("Details for product with id " + this.getView().getModel().getProperty("ProductId", oEvent.getSource().getBindingContext()));
 		}
 

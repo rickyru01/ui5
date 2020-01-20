@@ -12,6 +12,14 @@ sap.ui.define([
 		onInit: function () {
 			var oJSONModel = this.initSampleDataModel();
 			this.getView().setModel(oJSONModel);
+			var selectedKey = {
+				variantKey: "ALL"
+			};
+			var oModel = new sap.ui.model.json.JSONModel();
+			oModel.setData(selectedKey);
+
+			this.oView.setModel(oModel, "variantModel");
+
 		},
 		initSampleDataModel: function () {
 			var oModel = new JSONModel();
@@ -86,13 +94,22 @@ sap.ui.define([
 			var sDataPath = jQuery.sap.getModulePath("ricky.test.ui5.demo1", "/data/areas.json");
 			console.log("sDataPath:" + sDataPath)
 			var oAreaMode = new sap.ui.model.json.JSONModel(sDataPath); //url+path which you will see in the network tab.
-
 			this.oVariantList.setModel(oAreaMode, 'cards');
-			// var oVariantModel = this.oView.getModel('variantModel');
-			// var oData = oVariantModel.getData();
-			// var sArea = oData.variantKey;
+			var oVariantModel = this.oView.getModel('variantModel');
+			var oData = oVariantModel.getData();
+			var sArea = oData.variantKey;
 			//set default selected key
-			this.oVariantList.setSelectedKey("ALL");
+			this.oVariantList.setSelectedKey(sArea);
+		},
+		onVariantChanged: function (oEvent) {
+			var selectedText = oEvent.getSource().getSelectedItem().getText();
+			this.oVariantPopOver.close();
+			this.oView.byId('idVariantTitle').setText(selectedText);
+			var oVariantModel = this.oView.getModel('variantModel');
+			var oData = oVariantModel.getData();
+			oData.variantKey = oEvent.getSource().getSelectedKey();
+			oVariantModel.refresh(true);
+			//this.onCreateArea();
 		},
 		formatAvailableToObjectState: function (bAvailable) {
 			return bAvailable ? "Success" : "Error";

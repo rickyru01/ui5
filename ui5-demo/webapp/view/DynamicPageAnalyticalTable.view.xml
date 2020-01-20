@@ -18,7 +18,7 @@
                                 <Button id="showVariantSetsBtn" icon="sap-icon://navigation-down-arrow" type="Transparent" press="onVariantSetsShowPress" />
                             </items>
                         </FlexBox>
-                        <Label text="abc" tooltip="abc" class="sapMH4Style" visible="true"/>
+                        <Label text="abc" tooltip="abc" class="sapMH4Style" visible="false"/>
                         <tnt:InfoLabel text="Production" visible="true" colorScheme= "1" class="sapUiSmallMarginBegin"/>
                     </HBox>
                 </f:heading>

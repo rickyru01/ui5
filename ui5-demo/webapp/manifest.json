@@ -114,6 +114,10 @@
 					"pattern": "dynamicPage",
 					"name": "dynamicPage",
 					"target": "dynamicPage"
+				},{
+					"pattern": "stepInput",
+					"name": "stepInput",
+					"target": "stepInput"
 				}
 			],
 			"targets": {
@@ -152,6 +156,12 @@
 					"viewPath": "ricky.test.ui5.demo1.view",
 					"viewName": "DynamicPageAnalyticalTable",
 					"viewLevel": 2
+				},
+				"stepInput": {
+					"viewId": "stepInput",
+					"viewPath": "ricky.test.ui5.demo1.view",
+					"viewName": "StepInput",
+					"viewLevel": 1
 				}
 				
 				

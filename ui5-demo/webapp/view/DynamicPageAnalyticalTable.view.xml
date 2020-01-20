@@ -6,7 +6,8 @@
     xmlns:f="sap.f" 
     xmlns:tnt="sap.tnt"
     xmlns:layout="sap.ui.layout" height="100%">
-    <f:DynamicPage id="dynamicPageId" preserveHeaderStateOnScroll="true" headerExpanded="{/headerExpanded}">
+    <f:DynamicPage id="dynamicPageId" class="ovpApplication" preserveHeaderStateOnScroll="true" headerExpanded="{/headerExpanded}">
+    
         <!-- DynamicPage Title -->
         <f:title>
             <f:DynamicPageTitle>
@@ -19,7 +20,7 @@
                             </items>
                         </FlexBox>
                         <Label text="abc" tooltip="abc" class="sapMH4Style" visible="false"/>
-                        <tnt:InfoLabel text="Production" visible="true" colorScheme= "1" class="sapUiSmallMarginBegin"/>
+                        <tnt:InfoLabel text="Production" visible="true" colorScheme= "1"/>
                     </HBox>
                 </f:heading>
                 <!-- <f:expandedContent>

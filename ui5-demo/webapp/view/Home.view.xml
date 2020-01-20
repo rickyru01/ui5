@@ -7,7 +7,8 @@
 			<Button text="Flex Layout (2 Column)" press=".onFlexLayout" class="sapUiTinyMarginEnd"/>
 			<Button text="Status Indicator"  press=".onStatusIndicator" class="sapUiTinyMarginEnd"/>
 			<Button id="displayNotFoundBtn" text="DisplayNotFound" press=".onDisplayNotFound" class="sapUiTinyMarginEnd"/>
-			<Button text="TestDynamicPage" press=".onDynamicPage" class="sapUiTinyMarginEnd"/>
+			<Button text="TestDynamicPageWithPopOver" press=".onDynamicPage" class="sapUiTinyMarginEnd"/>
+			<Button text="TestStepInput" press=".onStepInput" class="sapUiTinyMarginEnd"/>
 		</content>
 	</Page>
 </mvc:View>

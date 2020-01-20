@@ -24,7 +24,12 @@ sap.ui.define([
 
         onDynamicPage:function(){
             this.getRouter().navTo("dynamicPage");
+        },
+
+        onStepInput:function(){
+            this.getRouter().navTo("stepInput");
         }
+
     });
 
 });

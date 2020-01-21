@@ -9,6 +9,7 @@
 			<Button id="displayNotFoundBtn" text="DisplayNotFound" press=".onDisplayNotFound" class="sapUiTinyMarginEnd"/>
 			<Button text="TestDynamicPageWithPopOver" press=".onDynamicPage" class="sapUiTinyMarginEnd"/>
 			<Button text="TestStepInput" press=".onStepInput" class="sapUiTinyMarginEnd"/>
+			<Button text="MicroChartsInTable" press=".onMicroChartsInTable" class="sapUiTinyMarginEnd"/>
 		</content>
 	</Page>
 </mvc:View>

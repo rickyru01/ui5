@@ -28,8 +28,10 @@ sap.ui.define([
 
         onStepInput:function(){
             this.getRouter().navTo("stepInput");
+        },
+        onMicroChartsInTable:function(){
+            this.getRouter().navTo("microChartsInTable");
         }
-
     });
 
 });

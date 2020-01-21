@@ -2,7 +2,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	controllerName="ricky.test.ui5.demo1.controller.StepInput"
 	xmlns="sap.m">
-
+<!-- 
 	<List id="idTable"
 		items="{
 			path: '/modelData'
@@ -13,29 +13,20 @@
 				<VBox class="sapUiSmallMarginEnd">
 					<Label text="{label}" wrapping="true"/>
 				</VBox>
-				<VBox>
+				<VBox> -->
 					<StepInput
-                        name="{id}"
-						value="{value}"
-						displayValuePrecision="{displayValuePrecision}"
-						min="{min}"
-						max="{max}"
-						width="{width}"
-						step="{step}"
-						largerStep="{largerStep}"
-						stepMode="{stepMode}"
-						valueState="{valueState}"
-						enabled="{enabled}"
-						editable="{editable}"
-						description="{description}"
-						fieldWidth="{fieldWidth}"
-						textAlign="{textAlign}"
-						validationMode="{validationMode}"
+                        id="si01"
+						value="6"
+						displayValuePrecision=""
+						min="5"
+						max="999"
+						width="120px"						
 						change="onChange"/>
-				</VBox>
+				<!-- </VBox>
 			</HBox>
 		</CustomListItem>
-	</List>
+	</List> -->
 
     <Button text="SetDefault" press=".onSetDefault" class="sapUiTinyMarginEnd"/>
+    <Button text="ShowValueInConsole" press=".onShowValue" class="sapUiTinyMarginEnd"/>
 </mvc:View>

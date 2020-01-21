@@ -118,6 +118,10 @@
 					"pattern": "stepInput",
 					"name": "stepInput",
 					"target": "stepInput"
+				},{
+					"pattern": "microChartsInTable",
+					"name": "microChartsInTable",
+					"target": "microChartsInTable"
 				}
 			],
 			"targets": {
@@ -161,6 +165,12 @@
 					"viewId": "stepInput",
 					"viewPath": "ricky.test.ui5.demo1.view",
 					"viewName": "StepInput",
+					"viewLevel": 1
+				},
+				"microChartsInTable": {
+					"viewId": "microChartsInTable",
+					"viewPath": "ricky.test.ui5.demo1.view",
+					"viewName": "MicroChartsInTable",
 					"viewLevel": 1
 				}
 				

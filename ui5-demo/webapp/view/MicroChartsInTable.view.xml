@@ -133,16 +133,16 @@ xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xml
 						<Text text="BulletMicroChart" />
 						<Text text="120" />
 						<FlexBox height="70px" width="170px" renderType="Bare">
-							<micro:BulletMicroChart scale="M" targetValue="100" forecastValue="110" app:name="bullet" press="press" size="Responsive">
+							<micro:BulletMicroChart scale="M" targetValue="120"  app:name="bullet" press="press" size="Responsive">
 								<micro:actual>
-									<micro:BulletMicroChartData value="120" color="Good" />
+									<micro:BulletMicroChartData value="100" color="Good" />
 								</micro:actual>
-								<micro:thresholds>
+								<!-- <micro:thresholds>
 									<micro:BulletMicroChartData value="0" color="Error" />
 									<micro:BulletMicroChartData value="50" color="Critical" />
 									<micro:BulletMicroChartData value="150" color="Critical" />
 									<micro:BulletMicroChartData value="200" color="Error" />
-								</micro:thresholds>
+								</micro:thresholds> -->
 							</micro:BulletMicroChart>
 						</FlexBox>
 					</cells>

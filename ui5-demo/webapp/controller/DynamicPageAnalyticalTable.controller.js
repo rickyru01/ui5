@@ -19,6 +19,7 @@ sap.ui.define([
 			oModel.setData(selectedKey);
 
 			this.oView.setModel(oModel, "variantModel");
+			this.oView.byId('idVariantTitle').setText("Security");
 
 		},
 		initSampleDataModel: function () {

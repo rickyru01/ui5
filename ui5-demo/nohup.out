@@ -1,0 +1,11 @@
+
+> ui5-demo@1.0.0 start /ricky/testing/javascript/exploreUI5/ui5-demo
+> grunt serve
+
+Running "serve" task
+
+Running "openui5_connect:src:keepalive" (openui5_connect) task
+
+Running "connect:src:keepalive" (connect) task
+Waiting forever...
+Started connect web server on http://localhost:8080

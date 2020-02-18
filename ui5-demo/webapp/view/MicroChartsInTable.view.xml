@@ -22,7 +22,7 @@ xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xml
 							<layoutData>
 								<FlexItemData maxHeight="70px" />
 							</layoutData>
-							<micro:RadialMicroChart size="Responsive" percentage="45" app:name="radial" press="press" />
+							<micro:RadialMicroChart size="Responsive" valueColor="Good" percentage="45.5" app:name="radial" press="press" />
 						</FlexBox>
 					</cells>
 				</ColumnListItem>
@@ -152,7 +152,7 @@ xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xml
 						<Text text="HarveyBallMicroChart" />
 						<Text text="63.5" />
 						<FlexBox height="70px" width="170px" renderType="Bare">
-							<micro:HarveyBallMicroChart isResponsive="true" total="100" totalScale="Mrd" showTotal="true" showFractions="true" app:name="harvey ball" press="press">
+							<micro:HarveyBallMicroChart isResponsive="true" total="100.3" totalScale="Mrd" showTotal="true" showFractions="true" app:name="harvey ball" press="press">
 								<micro:items>
 									<micro:HarveyBallMicroChartItem fraction="63.5" color="Good" fractionScale="Mrd" />
 								</micro:items>

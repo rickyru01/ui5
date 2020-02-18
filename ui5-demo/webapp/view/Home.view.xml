@@ -10,6 +10,8 @@
 			<Button text="TestDynamicPageWithPopOver" press=".onDynamicPage" class="sapUiTinyMarginEnd"/>
 			<Button text="TestStepInput" press=".onStepInput" class="sapUiTinyMarginEnd"/>
 			<Button text="MicroChartsInTable" press=".onMicroChartsInTable" class="sapUiTinyMarginEnd"/>
+			<Button text="PieChart(Viz,DataModelTest)" press=".onTestPieChart" class="sapUiTinyMarginEnd"/>
+			<Button text="FilterBar" press=".onTestFilterBar" tooltip="Search with busy dialog"/>
 		</content>
 	</Page>
 </mvc:View>

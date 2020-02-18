@@ -29,9 +29,18 @@ sap.ui.define([
         onStepInput:function(){
             this.getRouter().navTo("stepInput");
         },
+
         onMicroChartsInTable:function(){
             this.getRouter().navTo("microChartsInTable");
+        },
+        onTestPieChart: function(){
+            this.getRouter().navTo("pieChart");
+        },
+        onTestFilterBar: function(){
+            this.getRouter().navTo("filterBar");
         }
+
+
     });
 
 });

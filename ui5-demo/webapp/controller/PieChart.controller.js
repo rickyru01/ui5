@@ -4,14 +4,16 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("ricky.test.ui5.demo1.controller.PieChart", {
-
+		onAfterRendering: function () {
+            var oResource = this.getView().getBindingContext("testModel");
+        },
 		onInit: function () {
 
 			// get the path to the JSON file
 			var sDataPath = jQuery.sap.getModulePath("ricky.test.ui5.demo1", "/data/pie_chart_data.json");
 			console.log("sDataPath:" + sDataPath)
 			var sampleDatajson = new sap.ui.model.json.JSONModel(sDataPath); //url+path which you will see in the network tab.
-
+			this.getView().setModel(sampleDatajson, "testModel")
 			var oVizFrame = this.getView().byId("idPieChart");
 			oVizFrame.setVizProperties({
 				plotArea: {

@@ -122,6 +122,14 @@
 					"pattern": "microChartsInTable",
 					"name": "microChartsInTable",
 					"target": "microChartsInTable"
+				},{
+					"pattern": "pieChart",
+					"name": "pieChart",
+					"target": "pieChart"
+				},{
+					"pattern": "filterBar",
+					"name": "filterBar",
+					"target": "filterBar"
 				}
 			],
 			"targets": {
@@ -171,6 +179,18 @@
 					"viewId": "microChartsInTable",
 					"viewPath": "ricky.test.ui5.demo1.view",
 					"viewName": "MicroChartsInTable",
+					"viewLevel": 1
+				},
+				"pieChart":{
+					"viewId":  "pieChart",
+					"viewPath":"ricky.test.ui5.demo1.view",
+					"viewName": "PieChart",
+					"viewLevel": 1
+				},
+				"filterBar":{
+					"viewId":  "filterBar",
+					"viewPath":"ricky.test.ui5.demo1.view",
+					"viewName": "FilterBar",
 					"viewLevel": 1
 				}
 				

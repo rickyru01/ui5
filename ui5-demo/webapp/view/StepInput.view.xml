@@ -16,12 +16,13 @@
 				<VBox> -->
 					<StepInput
                         id="si01"
-						value="6"
-						displayValuePrecision=""
+						value="7"
+						description="xx"
 						min="5"
 						max="999"
-						width="120px"						
-						change="onChange"/>
+						width="200px"						
+						change="onChange"
+						/>
 				<!-- </VBox>
 			</HBox>
 		</CustomListItem>

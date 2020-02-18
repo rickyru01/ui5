@@ -1,13 +1,68 @@
 sap.ui.define([
+	'sap/m/SearchField',
 	'sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel',
 	'sap/m/Label',
 	'sap/ui/model/Filter'
-], function(Controller, JSONModel, Label, Filter) {
+], function (SearchField, Controller, JSONModel, Label, Filter) {
 	"use strict";
 
 	return Controller.extend("ricky.test.ui5.demo1.controller.DynamicPageListReport", {
-		onInit: function() {
+		createSearchField: function () {
+			var oFilterBar = this.getView().byId('filterbar');
+
+			var oSearchField = oFilterBar.getBasicSearch();
+			var oBasicSearch = null;
+
+			if (!oSearchField) {
+				oBasicSearch = new SearchField('idSearchField', {
+					liveChange: [this.onFilter, this],
+					search: [this.onFilter, this]
+				});
+			} else {
+				oSearchField = null;
+			}
+
+			oFilterBar.setBasicSearch(oBasicSearch);
+		},
+
+		onFilter: function (oEvent) {
+			this.openBusyDialog();
+			setTimeout(this.closeBusyDialog.bind(this), 5000);		
+		    this.applyClientFiltering(oEvent)			
+		},
+
+		openBusyDialog: function () {
+			if (!this.busyDialog) {
+				this.busyDialog = new sap.m.BusyDialog({
+					title: "loadig data"
+				});
+			}
+			this.busyDialog.open();
+		},
+
+		closeBusyDialog: function () {
+			if (this.busyDialog) {
+				this.busyDialog.close();
+			}
+		},
+
+		applyClientFiltering: function (oEvent) {
+			// add filter for search
+			var aFilters = [];
+			var sQuery = oEvent.getSource().getValue();
+			if (sQuery && sQuery.length > 0) {
+				var filter = new Filter("Name", sap.ui.model.FilterOperator.Contains, sQuery);
+				aFilters.push(filter);
+			}
+
+			// update list binding
+			var oList = this.byId("idProductsTable");
+			var oBinding = oList.getBinding("items");
+			oBinding.filter(aFilters, "Application");
+		},
+
+		onInit: function () {
 			this.oModel = new JSONModel();
 			this.oModel.loadData(sap.ui.require.toUrl("ricky/test/ui5/demo1/data/model.json"), null, false);
 			this.getView().setModel(this.oModel);
@@ -25,20 +80,23 @@ sap.ui.define([
 			if (oFB) {
 				oFB.variantsInitialized();
 			}
+
+
+			this.createSearchField();
 		},
 
-		onExit: function() {
+		onExit: function () {
 			this.aKeys = [];
 			this.aFilters = [];
 			this.oModel = null;
 		},
-		onToggleHeader: function() {
+		onToggleHeader: function () {
 			this.getPage().setHeaderExpanded(!this.getPage().getHeaderExpanded());
 		},
-		onToggleFooter: function() {
+		onToggleFooter: function () {
 			this.getPage().setShowFooter(!this.getPage().getShowFooter());
 		},
-		onSelectChange: function() {
+		onSelectChange: function () {
 			var aCurrentFilterValues = [];
 
 			aCurrentFilterValues.push(this.getSelectedItemText(this.oSelectName));
@@ -48,44 +106,44 @@ sap.ui.define([
 			this.filterTable(aCurrentFilterValues);
 		},
 
-		filterTable: function(aCurrentFilterValues) {
+		filterTable: function (aCurrentFilterValues) {
 			this.getTableItems().filter(this.getFilters(aCurrentFilterValues));
 			this.updateFilterCriterias(this.getFilterCriteria(aCurrentFilterValues));
 		},
 
-		updateFilterCriterias: function(aFilterCriterias) {
+		updateFilterCriterias: function (aFilterCriterias) {
 			this.removeSnappedLabel(); /* because in case of label with an empty text, */
 			this.addSnappedLabel(); /* a space for the snapped content will be allocated and can lead to title misalignment */
 			this.oModel.setProperty("/Filter/text", this.getFormattedSummaryText(aFilterCriterias));
 		},
 
-		addSnappedLabel: function() {
+		addSnappedLabel: function () {
 			var oSnappedLabel = this.getSnappedLabel();
 			oSnappedLabel.attachBrowserEvent("click", this.onToggleHeader, this);
 			this.getPageTitle().addSnappedContent(oSnappedLabel);
 		},
 
-		removeSnappedLabel: function() {
+		removeSnappedLabel: function () {
 			this.getPageTitle().destroySnappedContent();
 		},
 
-		getFilters: function(aCurrentFilterValues) {
+		getFilters: function (aCurrentFilterValues) {
 			this.aFilters = [];
 
-			this.aFilters = this.aKeys.map(function(sCriteria, i) {
+			this.aFilters = this.aKeys.map(function (sCriteria, i) {
 				return new Filter(sCriteria, sap.ui.model.FilterOperator.Contains, aCurrentFilterValues[i]);
 			});
 
 			return this.aFilters;
 		},
-		getFilterCriteria: function(aCurrentFilterValues) {
-			return this.aKeys.filter(function(el, i) {
+		getFilterCriteria: function (aCurrentFilterValues) {
+			return this.aKeys.filter(function (el, i) {
 				if (aCurrentFilterValues[i] !== "") {
 					return el;
 				}
 			});
 		},
-		getFormattedSummaryText: function(aFilterCriterias) {
+		getFormattedSummaryText: function (aFilterCriterias) {
 			if (aFilterCriterias.length > 0) {
 				return "Filtered By (" + aFilterCriterias.length + "): " + aFilterCriterias.join(", ");
 			} else {
@@ -93,25 +151,25 @@ sap.ui.define([
 			}
 		},
 
-		getTable: function() {
+		getTable: function () {
 			return this.getView().byId("idProductsTable");
 		},
-		getTableItems: function() {
+		getTableItems: function () {
 			return this.getTable().getBinding("items");
 		},
-		getSelect: function(sId) {
+		getSelect: function (sId) {
 			return this.getView().byId(sId);
 		},
-		getSelectedItemText: function(oSelect) {
+		getSelectedItemText: function (oSelect) {
 			return oSelect.getSelectedItem() ? oSelect.getSelectedItem().getKey() : "";
 		},
-		getPage: function() {
+		getPage: function () {
 			return this.getView().byId("dynamicPageId");
 		},
-		getPageTitle: function() {
+		getPageTitle: function () {
 			return this.getPage().getTitle();
 		},
-		getSnappedLabel: function() {
+		getSnappedLabel: function () {
 			return new Label({
 				text: "{/Filter/text}"
 			});

@@ -31,10 +31,14 @@ sap.ui.define([
 			var oController = this;
 			this.openBusyDialog();		
 			setTimeout(this.closeBusyDialog.bind(this), 3000);
+			while(1){
+				console.log("test");
+			}
+			oController.applyClientFiltering.call(oController, sQuery);
 			//setTimeout(this.applyClientFiltering.bind(this, oEvent), 4000);
-			setTimeout(function(){
-				oController.applyClientFiltering.call(oController, sQuery);
-			}, 9000)
+			// setTimeout(function(){
+			// 	oController.applyClientFiltering.call(oController, sQuery);
+			// }, 9000)
 		},
 
 		openBusyDialog: function () {

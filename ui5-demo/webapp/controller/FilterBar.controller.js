@@ -27,15 +27,20 @@ sap.ui.define([
 		},
 
 		onFilter: function (oEvent) {
-			this.openBusyDialog();
-			setTimeout(this.closeBusyDialog.bind(this), 5000);		
-		    this.applyClientFiltering(oEvent)			
+			var sQuery = oEvent.getSource().getValue();
+			var oController = this;
+			this.openBusyDialog();		
+			setTimeout(this.closeBusyDialog.bind(this), 3000);
+			//setTimeout(this.applyClientFiltering.bind(this, oEvent), 4000);
+			setTimeout(function(){
+				oController.applyClientFiltering.call(oController, sQuery);
+			}, 9000)
 		},
 
 		openBusyDialog: function () {
 			if (!this.busyDialog) {
 				this.busyDialog = new sap.m.BusyDialog({
-					title: "loadig data"
+					title: "loading data..."
 				});
 			}
 			this.busyDialog.open();
@@ -47,10 +52,15 @@ sap.ui.define([
 			}
 		},
 
-		applyClientFiltering: function (oEvent) {
+		// sleep time expects milliseconds
+		// sleep: function (time) {
+		// 	return new Promise((resolve) => setTimeout(resolve, time));
+		// },
+
+		applyClientFiltering: function (sQuery) {
 			// add filter for search
 			var aFilters = [];
-			var sQuery = oEvent.getSource().getValue();
+			//var sQuery = oEvent.getSource().getValue();
 			if (sQuery && sQuery.length > 0) {
 				var filter = new Filter("Name", sap.ui.model.FilterOperator.Contains, sQuery);
 				aFilters.push(filter);

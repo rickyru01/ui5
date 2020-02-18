@@ -130,6 +130,10 @@
 					"pattern": "filterBar",
 					"name": "filterBar",
 					"target": "filterBar"
+				},{
+					"pattern": "liveSearch",
+					"name": "liveSearch",
+					"target": "liveSearch"
 				}
 			],
 			"targets": {
@@ -191,6 +195,12 @@
 					"viewId":  "filterBar",
 					"viewPath":"ricky.test.ui5.demo1.view",
 					"viewName": "FilterBar",
+					"viewLevel": 1
+				},
+				"liveSearch":{
+					"viewId":  "liveSearch",
+					"viewPath":"ricky.test.ui5.demo1.view",
+					"viewName": "LiveSearch",
 					"viewLevel": 1
 				}
 				

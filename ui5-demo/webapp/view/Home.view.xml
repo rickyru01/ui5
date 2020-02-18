@@ -11,7 +11,8 @@
 			<Button text="TestStepInput" press=".onStepInput" class="sapUiTinyMarginEnd"/>
 			<Button text="MicroChartsInTable" press=".onMicroChartsInTable" class="sapUiTinyMarginEnd"/>
 			<Button text="PieChart(Viz,DataModelTest)" press=".onTestPieChart" class="sapUiTinyMarginEnd"/>
-			<Button text="FilterBar" press=".onTestFilterBar" tooltip="Search with busy dialog"/>
+			<Button text="FilterBar" press=".onTestFilterBar" tooltip="Search with busy dialog" class="sapUiTinyMarginEnd"/>
+			<Button text="LiveSearch" press=".onLiveSearch" tooltip="Search live" class="sapUiTinyMarginEnd"/>
 		</content>
 	</Page>
 </mvc:View>

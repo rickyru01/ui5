@@ -38,6 +38,9 @@ sap.ui.define([
         },
         onTestFilterBar: function(){
             this.getRouter().navTo("filterBar");
+        },
+        onLiveSearch: function(){
+            this.getRouter().navTo("liveSearch");
         }
 
 

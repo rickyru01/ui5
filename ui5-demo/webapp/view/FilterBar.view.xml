@@ -26,7 +26,7 @@
         <f:header>
             <f:DynamicPageHeader pinnable="true">
                 <f:content>
-                    <fb:FilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="false">
+                    <fb:FilterBar id="filterbar" showRestoreOnFB="true" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="false" filtersDialogClosed="onFiltersDialogClosed">
                         <fb:filterItems>
                             <fb:FilterItem name="A" label="Name">
                                 <fb:control>

@@ -1,5 +1,5 @@
 sap.ui.define([
-	'sap/m/SearchField',
+	'ricky/test/ui5/demo1/controller/SearchField',
 	'sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel',
 	'sap/m/Label',
